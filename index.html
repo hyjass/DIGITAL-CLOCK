@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
+      integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .container {
+        max-width: 1400px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .clockHolder {
+        width: 40rem;
+        background-color: #1b252a;
+        padding: 10px 20px;
+        border-radius: 15px;
+        border: 3px solid #f5ee62;
+        box-shadow: rgba(222, 238, 42, 0.1) 0px 4px 6px;
+        position: relative;
+      }
+
+      #clock {
+        font-size: 5rem;
+        text-align: center;
+        color: aliceblue;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="clockHolder">
+        <div class="timeHolder">
+          <div class="timeOptions">
+            <!-- <i class="fas fa-clock" data-title="Time"></i> -->
+            <!-- <i class="fas fa-stopwatch" data-title="StopWatch"></i> -->
+            <!-- <i class="far fa-clock" data-title="CountDown"></i> -->
+          </div>
+          <div class="mainDiv">
+            <p id="clock"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const currentTime = () => {
+        let curTime = new Date().toLocaleTimeString();
+        document.getElementById("clock").innerText = curTime;
+      };
+      currentTime();
+
+      const intervalId = setInterval(() => {
+        currentTime();
+      }, 1000);
+
+    </script>
+  </body>
+</html>
